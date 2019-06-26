@@ -1,5 +1,5 @@
 import React from 'react'
-// import SomeMap from './SomeMap'
+import SimpleMap from './SimpleMap'
 
 import { getRainLast6HoursLocationsAPI } from '../apis/gwrcRainLast6Hours'
 
@@ -19,21 +19,17 @@ class App extends React.Component {
   getRainLast6HoursLocations = () => {
     getRainLast6HoursLocationsAPI()
       .then(rainLast6HoursData => {
-        // console.log(Object.keys(rainLast6HoursData))
-
-        console.log(rainLast6HoursData[0])
 
         this.setState({
           rainLast6Hours: rainLast6HoursData
         })
-        // console.log("STATE", this.state)
       })
   }
 
   render() {
     return (
       <>
-        <h1>Where has it rained</h1>
+        <h1>Where has it rained?</h1>
 
         <ul>
           {this.state.rainLast6Hours.map((e, i) => {
@@ -42,6 +38,7 @@ class App extends React.Component {
             )
           })}
         </ul>
+        <SimpleMap />
       </>
     )
   }

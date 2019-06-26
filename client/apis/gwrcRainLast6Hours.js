@@ -6,7 +6,7 @@ const apiBaseUrl = 'https://mapping.gw.govt.nz/arcgis/rest/services/Rainfall/Map
 export function getRainLast6HoursLocationsAPI() {
   return request.get(apiBaseUrl)
     .then(response => {
-      // console.log(response.text)
+      //perform coordinate transformation from NZTM WGS (2193) to WGS (EPSG 3857) 
       return JSON.parse(response.text).features
     })
 }
