@@ -5,5 +5,8 @@ const apiBaseUrl = 'https://mapping.gw.govt.nz/arcgis/rest/services/Rainfall/Map
 // https://mapping.gw.govt.nz/arcgis/rest/services/Rainfall/MapServer/2
 export function getRainLast6HoursLocationsAPI() {
   return request.get(apiBaseUrl)
-    .then(response => response.body)
+    .then(response => {
+      // console.log(response.text)
+      return JSON.parse(response.text).features
+    })
 }

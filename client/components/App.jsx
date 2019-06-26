@@ -8,7 +8,7 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      rainLast6Hours: {}
+      rainLast6Hours: []
     }
   }
 
@@ -18,11 +18,15 @@ class App extends React.Component {
 
   getRainLast6HoursLocations = () => {
     getRainLast6HoursLocationsAPI()
-      .then(rainLast6Hours => {
-        console.log(rainLast6HoursData)
+      .then(rainLast6HoursData => {
+        // console.log(Object.keys(rainLast6HoursData))
+
+        console.log(rainLast6HoursData[0])
+
         this.setState({
-          rainLast6Hours: rainLast6HoursData.features
+          rainLast6Hours: rainLast6HoursData
         })
+        // console.log("STATE", this.state)
       })
   }
 
@@ -30,8 +34,14 @@ class App extends React.Component {
     return (
       <>
         <h1>Some Rain</h1>
-        {this.state.rainLast6Hours}
 
+        <ul>
+          {this.state.rainLast6Hours.map((e, i) => {
+            return (
+              <li key={i}>{e.attributes.Name}</li>
+            )
+          })}
+        </ul>
       </>
     )
   }
