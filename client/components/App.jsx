@@ -33,12 +33,12 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <h1>Some Rain</h1>
+        <h1>Where has it rained</h1>
 
         <ul>
           {this.state.rainLast6Hours.map((e, i) => {
             return (
-              <li key={i}>{e.attributes.Name}</li>
+              <li key={i}>{e.attributes.Name} X Coord {e.geometry.x} Y Coord {e.geometry.y}</li>
             )
           })}
         </ul>
