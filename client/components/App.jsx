@@ -19,7 +19,7 @@ class App extends React.Component {
   getRainLast6HoursLocations = () => {
     getRainLast6HoursLocationsAPI()
       .then(rainLast6HoursData => {
-
+        console.log(rainLast6HoursData)
         this.setState({
           rainLast6Hours: rainLast6HoursData
         })
@@ -27,6 +27,7 @@ class App extends React.Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <>
         <h1>Where has it rained?</h1>
