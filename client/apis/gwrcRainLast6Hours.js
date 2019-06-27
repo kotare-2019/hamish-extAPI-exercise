@@ -15,25 +15,19 @@ export function getRainLast6HoursLocationsAPI() {
           return {
             name: e.attributes.Name,
             lat: convertedCoords.y,
-            long: convertedCoords.y
+            long: convertedCoords.x
           }
         })
-      console.log(rainLast6HoursLocations)
-      return JSON.parse(response.text).features
+      return rainLast6HoursLocations
     })
 }
 
 const NZTM = '+proj=tmerc +lat_0=0 +lon_0=173 +k=0.9996 +x_0=1600000 +y_0=10000000 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs '
-const googleMapsSystem = '+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs'
+const googleMapsSystem = '+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs'
+
 function convertCoordsFromNZTMto3857(coordinates) {
-  console.log('input coordinates:', coordinates)
   // Coordinates may an object of the form {x:x,y:y} or an array of the form [x,y]
-  const convertedProjectedCoords = proj4(NZTM, 'GOOGLE', coordinates)
-  console.log('convertedProjectedCoords:', coordinates)
+  const convertedCoords = proj4(NZTM, googleMapsSystem, coordinates)
 
-  // const geodeticCoords = proj4.transform('GOOGLE', '+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs', convertedProjectedCoords)
-
-  console.log('geodeticCoords:', geodeticCoords)
-
-  return geodeticCoords
+  return convertedCoords
 }

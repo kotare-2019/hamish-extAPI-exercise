@@ -34,11 +34,11 @@ class App extends React.Component {
         <ul>
           {this.state.rainLast6Hours.map((e, i) => {
             return (
-              <li key={i}>{e.attributes.Name} X Coord {e.geometry.x} Y Coord {e.geometry.y}</li>
+              <li key={i}>{e.name} Lat: {e.lat} Long: {e.long}</li>
             )
           })}
         </ul>
-        <SimpleMap />
+        <SimpleMap rainLast6Hours={this.state.rainLast6Hours} />
       </>
     )
   }
