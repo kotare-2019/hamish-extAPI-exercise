@@ -31,7 +31,7 @@ class SimpleMap extends Component {
           .map((marker,i) => (<Markers key={i}
             lat={marker.lat}
             lng={marker.long}
-            text="RAIN"
+            text={i+1}
           />))}
         </GoogleMapReact>
       </div>

@@ -30,16 +30,19 @@ class App extends React.Component {
     console.log(this.state)
     return (
       <>
-        <h1>Where has it rained?</h1>
-
-        <ul>
+        <h1 class="title">Where has it rained?</h1>
+        <h2 class="subtitle">Greater Wellington Regional Council rain gauges active in last 6 hours.</h2>
+        <content>
+          <ol type="1">
           {this.state.rainLast6Hours.map((e, i) => {
             return (
-              <li key={i}>{e.name} Lat: {e.lat} Long: {e.long}</li>
+              <li key={i}>{e.name} <em>Lat: {e.lat} Long: {e.long}</em></li>
             )
           })}
-        </ul>
+          </ol>
+        </content>
         <SimpleMap rainLast6Hours={this.state.rainLast6Hours} />
+        <footer class="footer">Rain gauge data from Greater Wellington Regional Council</footer>
       </>
     )
   }
