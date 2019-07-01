@@ -30,13 +30,17 @@ class App extends React.Component {
     console.log(this.state)
     return (
       <>
-        <h1 class="title">Where has it rained?</h1>
-        <h2 class="subtitle">Greater Wellington Regional Council rain gauges active in last 6 hours.</h2>
+      <section class="hero is-primary">
+        <div class="hero-body">
+          <h1 class="title">Where has it rained?</h1>
+          <h2 class="subtitle">Greater Wellington Regional Council rain gauges active in last 6 hours.</h2>
+        </div>
+      </section>
         <content>
           <ol type="1">
           {this.state.rainLast6Hours.map((e, i) => {
             return (
-              <li key={i}>{e.name} <em>Lat: {e.lat} Long: {e.long}</em></li>
+              <li key={i}> {e.name} <em>Lat: {e.lat} Long: {e.long}</em></li>
             )
           })}
           </ol>
