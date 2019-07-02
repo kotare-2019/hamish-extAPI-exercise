@@ -19,7 +19,6 @@ class App extends React.Component {
   getRainLast6HoursLocations = () => {
     getRainLast6HoursLocationsAPI()
       .then(rainLast6HoursData => {
-        console.log(rainLast6HoursData)
         this.setState({
           rainLast6Hours: rainLast6HoursData
         })
@@ -27,10 +26,9 @@ class App extends React.Component {
   }
 
   render() {
-    console.log(this.state)
     return (
       <>
-      <section class="hero is-primary">
+      <section class="hero is-primary is-bold">
         <div class="hero-body">
           <h1 class="title">Where has it rained?</h1>
           <h2 class="subtitle">Greater Wellington Regional Council rain gauges active in last 6 hours.</h2>
