@@ -40,7 +40,7 @@ class App extends React.Component {
           <ol type="1">
           {this.state.rainLast6Hours.map((e, i) => {
             return (
-              <li key={i}> {e.name} <em>Lat: {e.lat} Long: {e.long}</em></li>
+              <li key={i}> {e.name} <em>Lat: {e.lat} Long: {e.long} Rain in the last 6 hours: {e.rainLast6Hours} mm Latest Reading: {e.lastRecording}</em></li>
             )
           })}
           </ol>
