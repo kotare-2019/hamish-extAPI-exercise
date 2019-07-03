@@ -20,7 +20,7 @@ export function getRainLast6HoursLocationsAPI() {
           return {
             name: e.attributes.Name,
             latestRainfall: e.attributes.LatestRainfall,
-            rainLast6Hours: e.attributes.RainTot6Hrs,
+            rainLast6Hours: Math.round(e.attributes.RainTot6Hrs),
             lastRecording: e.attributes.LatestTime,
             lat: convertedCoords.y,
             long: convertedCoords.x
