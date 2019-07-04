@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-const googleMapKey = require('../../server/googleMapKey').default
+import googleMapKey from '../../server/googleMapKey'
+// const googleMapKey = require('../../server/googleMapKey').default
 
 const Markers = ({ text }) => <div>{text}</div>;
 
@@ -16,9 +17,7 @@ class SimpleMap extends Component {
     }
   }
 
-
   render() {
-    console.log('key', googleMapKey)
     return (
       // Important! Always set the container height explicitly
       <div style={{ height: '70vh', width: 'auto' }}>
